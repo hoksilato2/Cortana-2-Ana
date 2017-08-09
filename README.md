@@ -2,7 +2,7 @@
 Enable Cortana to Text-to-Speech (TTS) for 3rd parties.
 Only for WINDOWS 10 x64 and Spanish language (at the moment)
 
-Con la intención de añadir una voz de gran calidad al ordenador de abordo de mi nave de Elite Dangerous, aprovechando las bondades de VoiceAttack, EDDI, y EDengineer para la utilización del motor TTS de Windows 10, he realizado un script en batch empaquetado en 7z autoejecutable para activar a Cortana para su uso en programas de terceros y en el apartado "texto a voz" de Windows 10 (tanto en la configuración "metro" como en la del Panel de control antíguo). Cortana en realidad es "Microsoft Ana".
+Con la intención de añadir una voz de gran calidad al ordenador de abordo de mi nave de Elite: Dangerous, aprovechando las bondades de VoiceAttack, EDDI, y EDengineer para la utilización del motor TTS de Windows 10, he realizado un script en batch empaquetado en 7z autoejecutable para activar a Cortana para su uso en programas de terceros y en el apartado "texto a voz" de Windows 10 (tanto en la configuración "metro" como en la del Panel de control antíguo). Cortana en realidad es "Microsoft Ana".
 
 ¡AVISO! Aunque hay abierta una petición en Windows Insider, Microsoft ha comunicado que no añadirán a Cortana para su uso de terceros para no ayudar a software malintencionado a confundir al usuario con "la voz del sistema". QUEDA BAJO VUESTRA RESPONSABILIDAD EL USO DE ESTE SCRIPT Y ME DESENTIENDO DE CUALQUIER RESPONSABILIDAD POR CUALQUIER PROBLEMA QUE PUEDA CAUSAR.
 
@@ -28,3 +28,9 @@ Si podéis observar a Microsoft Ana en la lista de voces disponibles mediante la
       
       
 De momento no se han encontrado mas incidencias.
+
+
+AGRADECIMIENTOS:
+
+- Mis primeras víctimas de testeo Zelvin y Txus de la comunidad Spanish Pilots Society (SPS) de Elite: Dangerous.
+- Altair28 del foro oficial de Frontier que a estas alturas aun no tiene ni idea que gracias a su gran trabajo configurando un perfil de VoiceAttack ha ayudado a motivarme para este pequeño proyecto.
