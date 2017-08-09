@@ -9,8 +9,11 @@ Con la intención de añadir una voz de gran calidad al ordenador de abordo de m
 INSTRUCCIONES:
 
 1- Ejecutar cortana-2-ana.exe con permisos Administrador
+
 2- seguir indicaciones de pantalla
+
 3- Cuando os pida copiar los códigos isolated, tened cuidado de no añadir espacios ni ningun otro carácter distinto al código.
+
 
 Es posible que se requiera de la ejecución del script un par o tres de veces dado que a veces no recoge todos los códigos isolated necesarios.
 
