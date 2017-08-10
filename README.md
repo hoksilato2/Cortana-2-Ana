@@ -45,4 +45,4 @@ AGRADECIMIENTOS:
 - Mis primeras víctimas de testeo Zelvin y Txus de la comunidad Spanish Pilots Society (SPS) de Elite: Dangerous.
 - Altair28 del foro oficial de Frontier que a estas alturas aun no tiene ni idea que gracias a su gran trabajo configurando un perfil de VoiceAttack ha ayudado a motivarme para este pequeño proyecto.
 
-- Agradecer a cualquiera que quiera aportar lo que sea a este pequeño proyecto.
+- Agradecer a cualquiera que quiera aportar algo!
