@@ -17,6 +17,16 @@ INSTRUCCIONES:
 
 Es posible que se requiera de la ejecución del script un par o tres de veces dado que a veces no recoge todos los códigos isolated necesarios.
 
+REFERENCIAS:
+
+Para realizar este script me he basado en el siguiente post de superusers.com:
+https://superuser.com/questions/1141840/how-to-enable-microsoft-eva-cortanas-voice-on-windows-10
+
+No se ha compilado el exe en ningun otro código. Es un script batch empaquetado en un autoejecutable 7zip.
+
+El icono de Elite Dangerous es del proyecto https://github.com/msarilar/EDEngineer que aprovecho para agradecer a msarilar por su gran trabajo!
+
+
 SOLUCION DE INCIDENCIAS:
 
 Aunque no debería hacer falta reiniciar el equipo, es recomendable después de la instalación.
@@ -34,3 +44,5 @@ AGRADECIMIENTOS:
 
 - Mis primeras víctimas de testeo Zelvin y Txus de la comunidad Spanish Pilots Society (SPS) de Elite: Dangerous.
 - Altair28 del foro oficial de Frontier que a estas alturas aun no tiene ni idea que gracias a su gran trabajo configurando un perfil de VoiceAttack ha ayudado a motivarme para este pequeño proyecto.
+
+- Agradecer a cualquiera que quiera aportar lo que sea a este pequeño proyecto.
