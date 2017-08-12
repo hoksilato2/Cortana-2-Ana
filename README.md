@@ -6,6 +6,15 @@ Con la intención de añadir una voz de gran calidad al ordenador de abordo de m
 
 ¡AVISO! Aunque hay abierta una petición en Windows Insider, Microsoft ha comunicado que no añadirán a Cortana para su uso de terceros para no ayudar a software malintencionado a confundir al usuario con "la voz del sistema". QUEDA BAJO VUESTRA RESPONSABILIDAD EL USO DE ESTE SCRIPT Y ME DESENTIENDO DE CUALQUIER RESPONSABILIDAD POR CUALQUIER PROBLEMA QUE PUEDA CAUSAR.
 
+DESCARGA:
+
+Descargar ejecutable donde mas os apetezca:
+      https://github.com/hoksilato2/Cortana-2-Ana/releases/download/beta/cortana-2-ana.exe
+
+Para ver todas las versiones clica en el siguiente enlace:
+      https://github.com/hoksilato2/Cortana-2-Ana/releases
+
+
 INSTRUCCIONES:
 
 1- Ejecutar cortana-2-ana.exe con permisos Administrador
@@ -20,7 +29,7 @@ Es posible que se requiera de la ejecución del script un par o tres de veces da
 REFERENCIAS:
 
 Para realizar este script me he basado en el siguiente post de superusers.com:
-https://superuser.com/questions/1141840/how-to-enable-microsoft-eva-cortanas-voice-on-windows-10
+      https://superuser.com/questions/1141840/how-to-enable-microsoft-eva-cortanas-voice-on-windows-10
 
 No se ha compilado el exe en ningun otro código. Es un script batch empaquetado en un autoejecutable 7zip.
 
