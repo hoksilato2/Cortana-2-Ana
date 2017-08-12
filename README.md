@@ -37,7 +37,7 @@ No se ha compilado el exe en ningun otro código. Es un script batch empaquetado
 El icono de Elite Dangerous es del proyecto [EDEngineer](https://github.com/msarilar/EDEngineer) que aprovecho para agradecer a [msarilar](https://github.com/msarilar/) por su gran trabajo!
 
 
-## SOLUCION DE INCIDENCIAS:
+## BUGS Y SOLUCIÓN DE INCIDENCIAS:
 
 Aunque no debería hacer falta reiniciar el equipo, es recomendable después de la instalación.
 
@@ -47,7 +47,7 @@ Si podéis observar a Microsoft Ana en la lista de voces disponibles mediante la
       
       
       
-De momento no se han encontrado mas incidencias.
+De momento no se han encontrado mas bugs.
 
 
 ## AGRADECIMIENTOS:
