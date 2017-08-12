@@ -30,13 +30,11 @@ Es posible que se requiera de la ejecución del script un par o tres de veces da
 
 ## REFERENCIAS:
 
-Para realizar este script me he basado en el siguiente post de superusers.com:
-
-      https://superuser.com/questions/1141840/how-to-enable-microsoft-eva-cortanas-voice-on-windows-10
+Para realizar este script me he basado en el siguiente post de [superusers.com](https://superuser.com/questions/1141840/how-to-enable-microsoft-eva-cortanas-voice-on-windows-10)
 
 No se ha compilado el exe en ningun otro código. Es un script batch empaquetado en un autoejecutable 7zip.
 
-El icono de Elite Dangerous es del proyecto https://github.com/msarilar/EDEngineer que aprovecho para agradecer a msarilar por su gran trabajo!
+El icono de Elite Dangerous es del proyecto [EDEngineer](https://github.com/msarilar/EDEngineer) que aprovecho para agradecer a [msarilar](https://github.com/msarilar/) por su gran trabajo!
 
 
 ## SOLUCION DE INCIDENCIAS:
