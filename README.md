@@ -9,10 +9,12 @@ Con la intención de añadir una voz de gran calidad al ordenador de abordo de m
 ## DESCARGA:
 
 Descargar ejecutable donde mas os apetezca: 
-[cortana-2-ana.exe] (https://github.com/hoksilato2/Cortana-2-Ana/releases/download/beta/cortana-2-ana.exe)
+
+[cortana-2-ana.exe](https://github.com/hoksilato2/Cortana-2-Ana/releases/download/beta/cortana-2-ana.exe)
 
 Para ver todas las versiones clica en el siguiente enlace:
-[https://github.com/hoksilato2/Cortana-2-Ana/releases] (https://github.com/hoksilato2/Cortana-2-Ana/releases)
+
+[https://github.com/hoksilato2/Cortana-2-Ana/releases](https://github.com/hoksilato2/Cortana-2-Ana/releases)
 
 
 ## INSTRUCCIONES:
