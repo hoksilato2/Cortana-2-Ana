@@ -8,12 +8,6 @@ Con la intención de añadir una voz de gran calidad al ordenador de abordo de m
 
 ## DESCARGA:
 
-Descargar ejecutable donde mas os apetezca: 
-
-[cortana-2-ana.exe](https://github.com/hoksilato2/Cortana-2-Ana/releases/download/beta/cortana-2-ana.exe)
-
-Para ver todas las versiones clica en el siguiente enlace:
-
 [https://github.com/hoksilato2/Cortana-2-Ana/releases](https://github.com/hoksilato2/Cortana-2-Ana/releases)
 
 
@@ -23,18 +17,12 @@ Para ver todas las versiones clica en el siguiente enlace:
 
 2- seguir indicaciones de pantalla
 
-3- Cuando os pida copiar los códigos isolated, tened cuidado de no añadir espacios ni ningun otro carácter distinto al código.
-
-
-Es posible que se requiera de la ejecución del script un par o tres de veces dado que a veces no recoge todos los códigos isolated necesarios.
 
 ## REFERENCIAS:
 
 Para realizar este script me he basado en el siguiente post de [superusers.com](https://superuser.com/questions/1141840/how-to-enable-microsoft-eva-cortanas-voice-on-windows-10)
 
 No se ha compilado el exe en ningun otro código. Es un script batch empaquetado en un autoejecutable 7zip.
-
-El icono de Elite Dangerous es del proyecto [EDEngineer](https://github.com/msarilar/EDEngineer) que aprovecho para agradecer a [msarilar](https://github.com/msarilar/) por su gran trabajo!
 
 
 ## BUGS Y SOLUCIÓN DE INCIDENCIAS:
