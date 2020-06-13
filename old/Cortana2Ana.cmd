@@ -1,18 +1,5 @@
 @echo off
 color 0E
-echo --------------------------------
-echo     Cortana disponible en TTS
-echo 		by cmdr. Hoksilato
-echo --------------------------------
-echo.
-echo.
-echo.
-echo AVISO!
-echo Este script tiene que ejecutarse como usuario administrador.
-echo SOLO COMPATIBLE CON WINDOWS 10 x64
-echo.
-echo.
-pause
 cls
 echo --------------------------------
 echo     Cortana disponible en TTS
@@ -21,6 +8,13 @@ echo --------------------------------
 echo.
 echo.
 echo.
+
+SETLOCAL ENABLEDELAYEDEXPANSION
+
+echo.
+echo Activando voces adicionales de Windows 10...
+powershell Set-ExecutionPolicy Unrestricted
+powershell -File %~dp0AV.ps1
 
 if not exist %userprofile%\Cortana_Backup md %userprofile%\Cortana_Backup
 if exist %userprofile%\Cortana_Backup echo Directorio %userprofile%\Cortana_Backup creado. > %temp%\cortana2ana.log
@@ -89,108 +83,62 @@ echo Backup de claves creadas  >> %temp%\cortana2ana.log
 :anareg
 echo.
 echo Modificando claves de registro...
-regedit /s %temp%\1-Voice-Ana-Cortana.reg
-echo Generadas claves de registro usando %temp%\1-Voice-Ana-Cortana.reg >> %temp%\cortana2ana.log
+
+set "SystemPath=%SystemRoot%\System32"
+if exist "%SystemRoot%\Sysnative\cmd.exe" set "SystemPath=%SystemRoot%\Sysnative"
+
+%SystemPath%\REG.EXE IMPORT "%~dp01-Voice-Ana-Cortana.reg"
+echo Generadas claves de registro usando %~dp01-Voice-Ana-Cortana.reg >> %temp%\cortana2ana.log
 
 echo.
 echo Extrayendo claves Isolated...
-reg query HKEY_CURRENT_USER\SOFTWARE\Microsoft\Speech_OneCore\Isolated > "%temp%\isolated.txt"
-echo Claves Isolated generadas:  >> %temp%\cortana2ana.log
-type %temp%\isolated.txt  >> %temp%\cortana2ana.log
-
-echo Primera parte finalizada.
-echo  Primera parte finalizada. >> %temp%\cortana2ana.log
-pause
+reg query HKEY_CURRENT_USER\SOFTWARE\Microsoft\Speech_OneCore\Isolated> "%temp%\isolated.txt"
+echo Claves Isolated generadas: >> %temp%\cortana2ana.log
+type %temp%\isolated.txt>> %temp%\cortana2ana.log
 
 :isolated1
 echo.
 cls
-for /F "tokens=1,2,3,4,5,6 delims=\" %%a in (%temp%\isolated.txt) do @echo %%f
+if exist %temp%\isolated.log del /Q %temp%\isolated.log
+for /F "tokens=1,2,3,4,5,6 delims=\" %%a in (%temp%\isolated.txt) do ( 
+	echo %%f>>%temp%\isolated.log
+	echo %%f>%temp%\isocode.log
+	set /p isocode=<"%temp%\isocode.log"
+	echo Windows Registry Editor Version 5.00 > %temp%\isocode.reg
+	echo. >> %temp%\isocode.reg
+	echo [HKEY_CURRENT_USER\SOFTWARE\Microsoft\Speech_OneCore\Isolated\!isocode!\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Speech_OneCore\Voices\Tokens\MSTTS_V110_esES_Ana] >> %temp%\isocode.reg
+	echo @="Microsoft Ana - Spanish (Spain)" >> %temp%\isocode.reg
+	echo "LangDataPath"="%%windir%%\\Speech_OneCore\\Engines\\TTS\\es-ES\\MSTTSLocesES.dat" >> %temp%\isocode.reg
+	echo "VoicePath"="%%windir%%\\Speech_OneCore\\Engines\\TTS\\es-ES\\M3082Ana" >> %temp%\isocode.reg
+	echo "409"="Microsoft Ana - Spanish (Spain)" >> %temp%\isocode.reg
+	echo "CLSID"="{179F3D56-1B0B-42B2-A962-59B7EF59FE1B}" >> %temp%\isocode.reg
+	echo. >> %temp%\isocode.reg
+	echo [HKEY_CURRENT_USER\SOFTWARE\Microsoft\Speech_OneCore\Isolated\!isocode!\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Speech_OneCore\Voices\Tokens\MSTTS_V110_esES_Ana\Attributes] >> %temp%\isocode.reg
+	echo "Version"="11.0" >> %temp%\isocode.reg
+	echo "Language"="C0A" >> %temp%\isocode.reg
+	echo "Gender"="Female" >> %temp%\isocode.reg
+	echo "Age"="Adult" >> %temp%\isocode.reg
+	echo "DataVersion"="11.0.2013.1022" >> %temp%\isocode.reg
+	echo "SharedPronunciation"="" >> %temp%\isocode.reg
+	echo "Name"="Microsoft Ana" >> %temp%\isocode.reg
+	echo "Vendor"="Microsoft" >> %temp%\isocode.reg
+	echo "SampleText"="Has seleccionado %%1 como voz predeterminada." >> %temp%\isocode.reg
+	
+	regedit /s %temp%\isocode.reg
+	echo clave de registro modificada con isolated !isocode!
+	echo clave de registro modificada con isolated !isocode! >> %temp%\cortana2ana.log
+)
 
 echo.
-echo De la lista de arriba, copia los codigos uno a uno,
-SET /P isolated1=y pega el primero aqui: || Set isolated1=ninguno
-If "%isolated1%"=="ninguno" goto error1
+echo Revisando voces...
+powershell Set-ExecutionPolicy Unrestricted
+powershell -File %~dp0AV.ps1
 
-goto continuar1
-
-:error1
-echo.
-echo No has puesto ningun codigo!
-echo Pulsa una tecla para intentar de nuevo...
-echo Error de usuario >> %temp%\cortana2ana.log
-pause > nul
-
-cls
-goto isolated1
-
-:continuar1
-echo Windows Registry Editor Version 5.00 > %temp%\isolated1.reg
-echo. >> %temp%\isolated1.reg
-echo [HKEY_CURRENT_USER\SOFTWARE\Microsoft\Speech_OneCore\Isolated\%isolated1%\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Speech_OneCore\Voices\Tokens\MSTTS_V110_esES_Ana] >> %temp%\isolated1.reg
-echo @="Microsoft Ana - Spanish (Spain)" >> %temp%\isolated1.reg
-echo "LangDataPath"="%%windir%%\\Speech_OneCore\\Engines\\TTS\\es-ES\\MSTTSLocesES.dat" >> %temp%\isolated1.reg
-echo "VoicePath"="%%windir%%\\Speech_OneCore\\Engines\\TTS\\es-ES\\M3082Ana" >> %temp%\isolated1.reg
-echo "409"="Microsoft Ana - Spanish (Spain)" >> %temp%\isolated1.reg
-echo "CLSID"="{179F3D56-1B0B-42B2-A962-59B7EF59FE1B}" >> %temp%\isolated1.reg
-echo. >> %temp%\isolated1.reg
-echo [HKEY_CURRENT_USER\SOFTWARE\Microsoft\Speech_OneCore\Isolated\%isolated1%\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Speech_OneCore\Voices\Tokens\MSTTS_V110_esES_Ana\Attributes] >> %temp%\isolated1.reg
-echo "Version"="11.0" >> %temp%\isolated1.reg
-echo "Language"="C0A" >> %temp%\isolated1.reg
-echo "Gender"="Female" >> %temp%\isolated1.reg
-echo "Age"="Adult" >> %temp%\isolated1.reg
-echo "DataVersion"="11.0.2013.1022" >> %temp%\isolated1.reg
-echo "SharedPronunciation"="" >> %temp%\isolated1.reg
-echo "Name"="Microsoft Ana" >> %temp%\isolated1.reg
-echo "Vendor"="Microsoft" >> %temp%\isolated1.reg
-echo "SampleText"="Has seleccionado %%1 como voz predeterminada." >> %temp%\isolated1.reg
-
-echo.
-regedit /s %temp%\isolated1.reg
-echo clave de registro modificada con isolated %isolated1%
-echo clave de registro modificada con isolated %isolated1% >> %temp%\cortana2ana.log
-
-:isolated2
-echo.
-SET /p mas=Tienes mas claves para meter? (S/N): 
-if %mas%== S goto continuar2
-if %mas%== s goto continuar2
-if %mas%== si goto continuar2
-if %mas%== N goto fin
-if %mas%== n goto fin
-if %mas%== no goto fin
-
-:error2
-echo.
-echo No has contestado correctamente!
-echo Pulsa una tecla para intentar de nuevo...
-echo Error de usuario >> %temp%\cortana2ana.log
-pause > nul
-goto isolated2
-
-:continuar2
-cls
-for /F "tokens=1,2,3,4,5,6 delims=\" %%a in (%temp%\isolated.txt) do @echo %%f
-SET /P isolated1=sigue la copia por el siguiente codigo que toca: || Set isolated1=ninguno
-if "%isolated1%"=="ninguno" goto :error3
-goto continuar1
-
-:error3
-echo No has puesto ningun codigo!
-echo Pulsa una tecla para intentar de nuevo...
-echo Error de usuario >> %temp%\cortana2ana.log
-pause > nul
-
-goto continuar2
+pause
 
 :fin
-regedit /s %temp%\1-Voice-Ana-Cortana.reg
-echo Generadas de nuevo claves de registro usando %temp%\1-Voice-Ana-Cortana.reg >> %temp%\cortana2ana.log
-echo.
-echo Activando todas las voces disponibles en el sistema (las mobile tambien!)
-Powershell.exe -executionpolicy remotesigned -File .\enable_all_voices.ps1
-
-
+rem regedit /s %~dp01-Voice-Ana-Cortana.reg
+rem echo Generadas de nuevo claves de registro usando %temp%\1-Voice-Ana-Cortana.reg >> %temp%\cortana2ana.log
 cls
 echo.
 echo Con esto deberia bastar.
@@ -205,9 +153,9 @@ echo Deberia aparecer una nueva voz llamada "Microsoft Ana"
 echo Si no aparece, puede que tengas que reintentarlo de nuevo. A veces es necesario
 echo para dar con el codigo "isolated" correcto.
 echo.
-echo En caso de reintentarlo y no funcionar ejecuta:
-echo            %temp%\1-Voice-Ana-Cortana.reg
-echo.
+rem echo En caso de reintentarlo y no funcionar ejecuta:
+rem echo            %temp%\1-Voice-Ana-Cortana.reg
+rem echo.
 echo Cualquier duda puedes dirigirte al foro oficial de Frontier o al Telegram @EliteEsp
 echo.
 echo Si quieres ver el log pulsa una tecla, si no, puedes cerrar esta ventana.
