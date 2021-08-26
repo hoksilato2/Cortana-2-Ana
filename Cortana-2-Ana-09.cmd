@@ -41,7 +41,10 @@ echo --------------------------------
 echo.
 echo.
 echo.
+NET FILE 1>NUL 2>NUL
+if '%errorlevel%' == '0' ( goto getPrivileges ) else ( goto errorUAC )
 
+:getPrivileges
 SETLOCAL ENABLEDELAYEDEXPANSION
 
 echo.
@@ -198,7 +201,7 @@ echo    ^<Token name="MSTTS_V110_esES_Ana"^> >> "%temp%\Ana-token.txt"
 echo       ^<String name="" value="Microsoft Ana - Spanish (Spain)" /^> >> "%temp%\Ana-token.txt"
 echo       ^<String name="LangDataPath" value="%windir%\Speech_OneCore\Engines\TTS\es-ES\MSTTSLocesES.dat" /^> >> "%temp%\Ana-token.txt"
 echo       ^<String name="VoicePath" value="%windir%\Speech_OneCore\Engines\TTS\es-ES\M3082Ana" /^> >> "%temp%\Ana-token.txt"
-echo       ^<String name="409" value="Microsoft Ana - Spanish (Spain)" /^> >> "%temp%\Ana-token.txt"
+echo       ^<String name="C0A" value="Microsoft Ana - Spanish (Spain)" /^> >> "%temp%\Ana-token.txt"
 echo       ^<String name="CLSID" value="{179F3D56-1B0B-42B2-A962-59B7EF59FE1B}" /^> >> "%temp%\Ana-token.txt"
 echo       ^<Attribute name="Version" value="11.0" /^> >> "%temp%\Ana-token.txt"
 echo       ^<Attribute name="Language" value="C0A" /^> >> "%temp%\Ana-token.txt"
@@ -265,7 +268,7 @@ for /F "tokens=1,2,3,4,5,6 delims=\" %%a in ("%temp%\isolated.txt") do (
 	echo @="Microsoft Ana - Spanish (Spain)" >> "%temp%\isocode.reg"
 	echo "LangDataPath"="%%windir%%\\Speech_OneCore\\Engines\\TTS\\es-ES\\MSTTSLocesES.dat" >> "%temp%\isocode.reg"
 	echo "VoicePath"="%%windir%%\\Speech_OneCore\\Engines\\TTS\\es-ES\\M3082Ana" >> "%temp%\isocode.reg"
-	echo "409"="Microsoft Ana - Spanish (Spain)" >> "%temp%\isocode.reg"
+	echo "C0A"="Microsoft Ana - Spanish (Spain)" >> "%temp%\isocode.reg"
 	echo "CLSID"="{179F3D56-1B0B-42B2-A962-59B7EF59FE1B}" >> "%temp%\isocode.reg"
 	echo. >> "%temp%\isocode.reg"
 	echo [HKEY_CURRENT_USER\SOFTWARE\Microsoft\Speech_OneCore\Isolated\!isocode!\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Speech_OneCore\Voices\Tokens\MSTTS_V110_esES_Ana\Attributes] >> "%temp%\isocode.reg"
@@ -324,4 +327,10 @@ echo Pulse una tecla para cerrar y limpiar temporales.
 if exist "%~dp0AV.ps1" del /Q "%~dp0AV.ps1"
 if exist "%~dp01-Voice-Ana-Cortana.reg" del /Q "%~dp01-Voice-Ana-Cortana.reg"
 pause > nul
+exit
+
+:errorUAC
+echo.
+echo Es necesario abrir este script como administrador!
+pause>nul
 exit
